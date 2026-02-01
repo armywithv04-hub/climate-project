@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <div class="container">
+    <div class="tree-icon">🌳</div>
+    <h1>RootSearch Portal</h1> 
+    ...
+    <head>
+    <meta charset="UTF-8">
+    <title>RootSearch - AI Reforestation</title> 
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>RootSearch | AI Reforestation</title> 
+    
+</head>
+</div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RootSearch - AI Reforestation Portal</title>
+    
+    
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0fdf4; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .container { text-align: center; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 400px; }
+        h1 { color: #166534; font-size: 24px; margin-bottom: 10px; }
+        .counter { font-size: 14px; color: #15803d; font-weight: bold; margin-bottom: 20px; }
+        input { width: 100%; padding: 12px; border: 2px solid #bbf7d0; border-radius: 10px; font-size: 16px; outline: none; box-sizing: border-box; }
+        button { margin-top: 15px; width: 100%; padding: 12px; background: #22c55e; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        button:hover { background: #16a34a; }
+        #status { margin-top: 15px; font-size: 13px; color: #666; font-style: italic; display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🌳 RootSearch</h1>
+        <div class="counter">Trees planted by this community: <span id="count">0</span></div>
+        
+        <input type="text" id="searchInput" placeholder="Search the web to plant a tree...">
+        <button onclick="plantTree()">Search & Plant</button>
+        
+        <div id="status">AI is verifying your request and connecting to reforestation partners...</div>
+    </div>
+
+    <script>
+        let treeCount = 0;
+
+        function plantTree() {
+            const query = document.getElementById('searchInput').value;
+            const status = document.getElementById('status');
+            
+            if (query.trim() === "") {
+                alert("Please type something to search!");
+                return;
+            }
+
+            // Show AI simulation
+            status.style.display = "block";
+            
+            // Simulate AI processing time
+            setTimeout(() => {
+                treeCount++;
+                document.getElementById('count').innerText = treeCount;
+                
+                // Redirect to a real tree-planting search engine (Ecosia)
+                const searchUrl = `https://www.ecosia.org/search?q=${encodeURIComponent(query)}`;
+                window.open(searchUrl, '_blank');
+                
+                status.innerText = "Tree planted! Redirecting to results...";
+            }, 1500);
+        }
+    </script>
+
+</body>
+</html>
